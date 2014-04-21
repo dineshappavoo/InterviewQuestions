@@ -4,7 +4,9 @@
 package nanosatisfi;
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
+ * 
+ * Nano satisfi interview questions
  *
  */
 public class Equillibrium {
