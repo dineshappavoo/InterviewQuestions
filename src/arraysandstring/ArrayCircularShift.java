@@ -23,12 +23,13 @@ public class ArrayCircularShift {
 		int len=arr.length,initial;
 		int start=initial=arr[0];
 		int d=0, temp;
-		
+		int[] out=new int[arr.length];
 		while(start!=initial)
 		{
 			 d=(d+n)%len;
 			 temp=arr[d];
 		}
+		return out;
 	}
 
 }
