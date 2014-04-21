@@ -3,6 +3,11 @@
  */
 package huffman;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+import amazon.AmazonChallenge.Product;
+
 /**
  * @author Dany
  *
@@ -58,6 +63,21 @@ public class Huffman {
     }
 
 
+    //Node Priority Queue
+    public static PriorityQueue<Node> implementMaxHeapPriorityQueue()
+	{
+		 PriorityQueue<Node> queue = new PriorityQueue<Node>(11, new Comparator<Node>()
+		 {
+			 public int compare(Node o1, Node o2)
+			 {
+				 int p1=o1.freq;
+				 int p2=o2.freq;
+				 return (p2-p1); 
+				 }
+			 }
+		 );
+		 return queue;
+	}
     // compress bytes from standard input and write to standard output
     public static void compress() {
         // read the input
@@ -104,19 +124,19 @@ public class Huffman {
     private static Node buildTrie(int[] freq) {
 
         // initialze priority queue with singleton trees
-        MinPQ<Node> pq = new MinPQ<Node>();
+        PriorityQueue<Node> pq = implementMaxHeapPriorityQueue();
         for (char i = 0; i < R; i++)
             if (freq[i] > 0)
-                pq.insert(new Node(i, freq[i], null, null));
+                pq.add(new Node(i, freq[i], null, null));
 
         // merge two smallest trees
         while (pq.size() > 1) {
-            Node left  = pq.delMin();
-            Node right = pq.delMin();
+            Node left  = pq.remove();
+            Node right = pq.remove();
             Node parent = new Node('\0', left.freq + right.freq, left, right);
-            pq.insert(parent);
+            pq.add(parent);
         }
-        return pq.delMin();
+        return pq.remove();
     }
 
 
