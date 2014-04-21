@@ -22,8 +22,8 @@ public class StringAnagrams {
 	public boolean isAnagram(String str1, String str2)
 	{
 		//To get the no of occurrences of each character and store it in their ASCII location
-		int[] strCountArr1=getCountASCII(str1);
-		int[] strCountArr2=getCountASCII(str2);
+		int[] strCountArr1=getASCIICountArr(str1);
+		int[] strCountArr2=getASCIICountArr(str2);
 		
 		//To Test whether the two arrays have the same count of characters. Array size 256 since ASCII 256 unique values
 		for(int i=0;i<256;i++)
@@ -31,13 +31,10 @@ public class StringAnagrams {
 			if(strCountArr1[i]!=strCountArr2[i])
 				return false;
 		}
-		
 		return true;
-
-		
 	}
 	
-	public int[] getCountASCII(String str)
+	public int[] getASCIICountArr(String str)
 	{
 		char c;
 		//Array size 256 for ASCII
