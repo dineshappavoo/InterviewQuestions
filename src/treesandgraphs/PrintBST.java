@@ -33,8 +33,9 @@ public class PrintBST {
 		TreeNode left=null;
 		TreeNode right=null;
 		Queue<TreeNode> queue=new LinkedList<TreeNode>();
-		queue.add(null);
+		//queue.add(null);
 		queue.add(root);
+		System.out.println(root.data);
 		while(!queue.isEmpty())
 		{
 			currentNode=queue.poll();
@@ -43,6 +44,8 @@ public class PrintBST {
 				System.out.println("");
 			}else
 			{
+				if(currentNode.data!=-1)
+				{
 				left=currentNode.left;
 				if(left==null)
 					queue.add(new TreeNode(-1));
@@ -54,6 +57,7 @@ public class PrintBST {
 				else
 					queue.add(right);
 				System.out.print(currentNode.data);
+				}
 			}
 			queue.add(null);
 			
