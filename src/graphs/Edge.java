@@ -1,7 +1,7 @@
 /**
  * 
  */
-package treesandgraphs;
+package graphs;
 
 /**
  * @author Dany

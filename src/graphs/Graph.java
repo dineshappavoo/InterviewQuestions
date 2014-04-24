@@ -1,4 +1,4 @@
-package treesandgraphs;
+package graphs;
 
 import java.util.ArrayList;
 

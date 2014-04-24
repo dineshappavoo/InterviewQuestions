@@ -1,7 +1,7 @@
 /**
  * 
  */
-package treesandgraphs;
+package graphs;
 
 import java.util.ArrayList;
 import java.util.Scanner;
