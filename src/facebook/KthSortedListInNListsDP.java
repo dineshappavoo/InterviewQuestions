@@ -21,6 +21,8 @@ public class KthSortedListInNListsDP {
 	 * @param args
 	 */
 	public static HashMap<Integer, ArrayList<ArrayList<Integer>>> hMap=new HashMap<Integer, ArrayList<ArrayList<Integer>>>();
+	public static HashSet<Integer> resultSet=new HashSet<Integer>();
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
@@ -54,7 +56,7 @@ public class KthSortedListInNListsDP {
 			}
 			int[] permutList=new int[totalLists];
 			//count=
-			findkthLargestfromLists(inList, permutList, inList.size()-1, k, 0, totalLists);
+			findPermutations(inList, inList.size()-1, k, 0);
 			
 			System.out.println("Count :"+resultSet.size());
 			resultSet=new HashSet<Integer>();
@@ -65,31 +67,7 @@ public class KthSortedListInNListsDP {
 	}
 	
 	
-	public void findkthLargestfromLists(ArrayList<ArrayList<Integer>> inList, int[] permutList, int pos, int k, int level, int totalLists)
-	{
-		
-		if(pos<0)
-		{
-			resultSet.add(findKthlargestFromList(permutList, k, totalLists));
-			
-			return;
-		}
-		ArrayList<Integer> intermediateList=inList.get(pos--);
-		
-		for(int i : intermediateList)
-			{
-			if(pos==0)
-			{
-				ArrayList<Integer> memoList=new ArrayList<Integer>();
-				ArrayList<ArrayList<Integer>> memoNumberList=new ArrayList<ArrayList<Integer>>();
-				memoList.add(i);
-				memoNumberList.add(memoList);
-				hMap.put(i,memoNumberList);
-			}
-				permutList[level]=i;
-				findkthLargestfromLists(inList, permutList, pos, k, level+1, totalLists);
-			}
-	}
+
 	
 	public int findKthlargestFromList(int[] inList, int k, int totalLists)
 	{
@@ -98,8 +76,40 @@ public class KthSortedListInNListsDP {
 		Arrays.sort(permLst);
 		return permLst[k-1];
 	}
-	public ArrayList<Integer> returnPermutations(ArrayList<ArrayList<Integer>> inList)
+	public void findPermutations(ArrayList<ArrayList<Integer>> inList,int pos, int k, int current)
 	{
+		ArrayList<Integer> intermediateList=inList.get(pos--);
+		for(int i : intermediateList)
+			{
+			current=i;
+			if(pos==0)
+			{
+				ArrayList<Integer> memoList=new ArrayList<Integer>();
+				ArrayList<ArrayList<Integer>> memoNumberList=new ArrayList<ArrayList<Integer>>();
+				memoList.add(i);
+				memoNumberList.add(memoList);
+				hMap.put(i,memoNumberList);
+				return;
+			}
+			else
+			{
+				if(hMap.containsKey(current))
+				{
+				ArrayList<ArrayList<Integer>> interList=hMap.get(current);
+				for(ArrayList<Integer> list : interList)
+				{
+					list.add(i);
+				}
+				//hMap.put(current, interList);
+				}
+				else
+				{
+					ArrayList<ArrayList<Integer>> interList=null;
+				}
+			}
+				//permutList[level]=i;
+			findPermutations(inList, pos, k, current);
+			}
 		
 	}
 
