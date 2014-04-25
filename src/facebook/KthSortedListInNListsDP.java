@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author Dany
@@ -23,9 +24,10 @@ public class KthSortedListInNListsDP {
 	public static HashMap<Integer, ArrayList<ArrayList<Integer>>> hMap=new HashMap<Integer, ArrayList<ArrayList<Integer>>>();
 	public static HashSet<Integer> resultSet=new HashSet<Integer>();
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
 
+		new KthSortedListInNListsDP().constructNLists("/users/dany/downloads/input000.txt");
 	}
 	
 	public void constructNLists(String sFile) throws FileNotFoundException
@@ -78,22 +80,42 @@ public class KthSortedListInNListsDP {
 	}
 	public void findPermutations(ArrayList<ArrayList<Integer>> inList,int pos, int k, int current)
 	{
-		ArrayList<Integer> intermediateList=inList.get(pos--);
+		ArrayList<Integer> intermediateList=new ArrayList<Integer>();
+		if(pos>=0)
+		{
+			intermediateList=inList.get(pos--);
+		}
 		for(int i : intermediateList)
 			{
 			current=i;
 			if(pos==0)
 			{
-				ArrayList<Integer> memoList=new ArrayList<Integer>();
-				ArrayList<ArrayList<Integer>> memoNumberList=new ArrayList<ArrayList<Integer>>();
-				memoList.add(i);
-				memoNumberList.add(memoList);
-				hMap.put(i,memoNumberList);
-				return;
+				ArrayList<Integer> lastList=inList.get(pos);
+				for(int n : lastList)
+				{
+					ArrayList<Integer> memoList=new ArrayList<Integer>();
+					ArrayList<ArrayList<Integer>> memoNumberList=new ArrayList<ArrayList<Integer>>();
+					memoList.add(n);
+					memoNumberList.add(memoList);
+					hMap.put(n,memoNumberList);
+				}
+
 			}
-			else
-			{
-				if(hMap.containsKey(current))
+			if(pos<-1)
+				return;
+			 findPermutations(inList, pos, k, current);
+				
+			
+				ArrayList<ArrayList<Integer>> midList=new ArrayList<ArrayList<Integer>>();
+				midList.addAll(hMap.get(i));
+				hMap.put(current, midList);
+				for(ArrayList<Integer> list : midList)
+				{
+					list.add(current);
+				}
+				hMap.put(current, midList);
+				
+				/*if(hMap.containsKey(current))
 				{
 				ArrayList<ArrayList<Integer>> interList=hMap.get(current);
 				for(ArrayList<Integer> list : interList)
@@ -105,10 +127,12 @@ public class KthSortedListInNListsDP {
 				else
 				{
 					ArrayList<ArrayList<Integer>> interList=null;
-				}
-			}
+					interList=hMap.get(i);
+				}*/
+				
+				
 				//permutList[level]=i;
-			findPermutations(inList, pos, k, current);
+			//findPermutations(inList, pos, k, current);
 			}
 		
 	}
