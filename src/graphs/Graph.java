@@ -54,6 +54,12 @@ public class Graph {
 		edgeList.remove(indexToBeRemoved);
 	}
 	
+	/**
+	 * 
+	 * @param u
+	 * @return
+	 * To return the outgoing edges for the given source
+	 */
 	public ArrayList<Edge> getOutEdges(int u)
 	{
 		return adjacencyList[u];
