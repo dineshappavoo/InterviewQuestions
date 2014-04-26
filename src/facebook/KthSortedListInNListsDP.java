@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author Dany
@@ -58,7 +57,7 @@ public class KthSortedListInNListsDP {
 			}
 			int[] permutList=new int[totalLists];
 			//count=
-			findPermutations(inList, inList.size()-1, k, 0);
+			findPermutations(inList, inList.size()-1, k, 0, 0);
 			
 			System.out.println("Count :"+resultSet.size());
 			resultSet=new HashSet<Integer>();
@@ -78,16 +77,17 @@ public class KthSortedListInNListsDP {
 		Arrays.sort(permLst);
 		return permLst[k-1];
 	}
-	public void findPermutations(ArrayList<ArrayList<Integer>> inList,int pos, int k, int current)
+	public void findPermutations(ArrayList<ArrayList<Integer>> inList,int pos, int k, int current,int nextUpperListNo)
 	{
 		ArrayList<Integer> intermediateList=new ArrayList<Integer>();
 		if(pos>=0)
 		{
 			intermediateList=inList.get(pos--);
 		}
+		current=nextUpperListNo;
 		for(int i : intermediateList)
 			{
-			current=i;
+			//current=i;
 			if(pos==0)
 			{
 				ArrayList<Integer> lastList=inList.get(pos);
@@ -103,7 +103,7 @@ public class KthSortedListInNListsDP {
 			}
 			if(pos<-1)
 				return;
-			 findPermutations(inList, pos, k, current);
+			 findPermutations(inList, pos, k, i, nextUpperListNo);
 				
 			
 				ArrayList<ArrayList<Integer>> midList=new ArrayList<ArrayList<Integer>>();
