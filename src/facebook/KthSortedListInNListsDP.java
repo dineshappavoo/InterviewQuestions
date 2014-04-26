@@ -115,20 +115,6 @@ public class KthSortedListInNListsDP {
 				}
 				hMap.put(current, midList);
 				
-				/*if(hMap.containsKey(current))
-				{
-				ArrayList<ArrayList<Integer>> interList=hMap.get(current);
-				for(ArrayList<Integer> list : interList)
-				{
-					list.add(i);
-				}
-				//hMap.put(current, interList);
-				}
-				else
-				{
-					ArrayList<ArrayList<Integer>> interList=null;
-					interList=hMap.get(i);
-				}*/
 				
 				
 				//permutList[level]=i;
