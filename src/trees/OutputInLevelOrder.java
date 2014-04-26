@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- * @author Dinesh
+ * @author Dinesh Appavoo
  *
  */
 public class OutputInLevelOrder {
@@ -75,7 +75,6 @@ public class OutputInLevelOrder {
 		if(root==null)
 			return;
 		TreeList dataVal;
-		//System.out.println("Node value root : "+root.data);
 		root.visited=true;
 		LinkedList<TreeList> lList=new LinkedList<TreeList>();
 		lList.addFirst(root);
