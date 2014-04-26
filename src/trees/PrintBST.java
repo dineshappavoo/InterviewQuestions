@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  */
 public class PrintBST {
