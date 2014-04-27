@@ -21,6 +21,13 @@ public class RotatedArraySearch {
 
 	}
 	
+	/**
+	 * Function to find min  element in rotated array
+	 * @param arr
+	 * @param low
+	 * @param high
+	 * @return
+	 */
 	public int findMin(int[] arr, int low, int high)
 	{
 		//if(low<high)
