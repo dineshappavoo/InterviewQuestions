@@ -15,7 +15,7 @@ public class Graph {
 	
 	public Graph(int noOfVertices)
 	{
-		adjacencyList=(ArrayList<Edge>[])new ArrayList[noOfVertices];
+		adjacencyList=(ArrayList<Edge>[])new ArrayList[noOfVertices+1];
 		this.noOfVertices=noOfVertices;
 	}
 
@@ -88,7 +88,7 @@ public class Graph {
 	public void printGraph()
 	{
 		ArrayList<Edge> edgeList;
-		for(int i=0;i<noOfVertices;i++)
+		for(int i=1;i<noOfVertices;i++)
 		{
 			edgeList=adjacencyList[i];
 			for(Edge e : edgeList)
@@ -103,6 +103,15 @@ public class Graph {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		Graph graph=new Graph(3);
+		graph.addEdge(1, 2, 5);
+		graph.addEdge(1, 3, 12);
+		graph.addEdge(3, 1, 12);
+		graph.addEdge(2, 1, 5);
+		graph.addEdge(2, 3, 7);
+		graph.addEdge(3, 2, 7);
+		graph.printGraph();
+		
 	}
 	
 	
