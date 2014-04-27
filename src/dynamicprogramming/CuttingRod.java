@@ -27,6 +27,12 @@ public class CuttingRod {
 
 	}
 	
+	/**
+	 * Function to get maximum profit from the input
+	 * @param price
+	 * @param n
+	 * @return
+	 */
 	public int calMaxProfit(int[] price, int n)
 	{
 		ArrayList<Integer> result= new ArrayList<Integer>();
