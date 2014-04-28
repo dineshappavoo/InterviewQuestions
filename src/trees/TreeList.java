@@ -6,7 +6,7 @@ package trees;
 import java.util.ArrayList;
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  */
 public class TreeList {
@@ -19,6 +19,7 @@ public class TreeList {
 	{
 		this.data=data;
 		adjacent=new ArrayList<TreeList>();
+		this.visited=false;
 		
 	}
 	
