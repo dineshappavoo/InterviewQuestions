@@ -24,6 +24,7 @@ public class TreeNode {
 		this.left=null;
 		this.right=null;
 		this.parent=null;
+		this.visited=false;
 		
 	}
 
