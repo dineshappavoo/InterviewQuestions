@@ -11,7 +11,7 @@ import java.util.PriorityQueue;
 
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  *
  *Suppose you are an engineer on the Amazon Media team. Your team needs to launch a new recommendation feature called “Stuff Your Friends are Buying”.  The recommendation logic is based on the following rules:
