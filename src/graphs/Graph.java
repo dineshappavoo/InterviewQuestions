@@ -91,6 +91,7 @@ public class Graph<T extends Comparable<T>>{
 		for(int i=1;i<=noOfVertices;i++)
 		{
 			edgeList=adjacencyList[i];
+			if(edgeList!=null)
 			for(Edge e : edgeList)
 				System.out.println("u : "+e.u+" v : "+e.v+" w : "+e.w);
 		}

@@ -57,7 +57,7 @@ public class DijkstraAlgorithm {
 				v=scanner.nextInt();
 				w=scanner.nextInt();
 				graph.addEdge(u, v, w);
-				graph.addEdge(v, u, w);
+				//graph.addEdge(v, u, w);
 			}
 			break;
 		}
@@ -127,6 +127,7 @@ public class DijkstraAlgorithm {
 		{
 			pathDetermined[i]=true;
 			ArrayList<Edge> adjacentList=graph.getOutEdges(i);
+			if(adjacentList!=null)
 			for(Edge e : adjacentList)
 			{
 				doRelax((Integer)e.u, (Integer)e.v, (Integer)e.w);
