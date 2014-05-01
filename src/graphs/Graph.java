@@ -88,7 +88,7 @@ public class Graph<T extends Comparable<T>>{
 	public void printGraph()
 	{
 		ArrayList<Edge> edgeList;
-		for(int i=1;i<noOfVertices;i++)
+		for(int i=1;i<=noOfVertices;i++)
 		{
 			edgeList=adjacencyList[i];
 			for(Edge e : edgeList)
