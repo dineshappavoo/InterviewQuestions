@@ -28,6 +28,11 @@ public class DijkstraAlgorithm {
 		DijkstraAlgorithm dijkstra=new DijkstraAlgorithm();
 		dijkstra.constructGraph();
 		dijkstra.findDijkstraShortestPath();
+		
+		for(int i=1;i<=noOfVertices;i++)
+		{
+			System.out.println("Distance for "+i+" is "+d[i] );
+		}
 	}
 	
 	public void constructGraph()
@@ -62,6 +67,12 @@ public class DijkstraAlgorithm {
 
 	/**
 	 * Initialize a single source graph
+	 * INITIALIZE-SINGLE-SOURCE(G, s)
+		for each vertex v in V [G]
+			do d[v] <- Infinity
+			¹[v] <- NIL
+		d[s] <- 0
+	 * 
 	 */
 	public void initializeSingleSource()
 	{
@@ -69,7 +80,7 @@ public class DijkstraAlgorithm {
 		d[1]=0; 
 		
 		//Initialize all vertices distance as infinity
-		for(int i=1;i<=noOfVertices;i++)
+		for(int i=2;i<=noOfVertices;i++)
 		{
 			d[i]=INFINITY;
 		}
@@ -77,6 +88,13 @@ public class DijkstraAlgorithm {
 	
 	/**
 	 * Method to relax an edge
+	 * 
+	 * RELAX(u, v, w)
+			if d[v] > d[u] +w(u, v)
+				then d[v] <- d[u] +w(u, v)
+					¹[v] <- u
+	 * 
+	 * 
 	 * @param u
 	 * @param v
 	 * @param w
@@ -89,6 +107,18 @@ public class DijkstraAlgorithm {
 	
 	/**
 	 * Function to find the shortest path using Dijkstra's Algorithm
+	 * 
+	 * 
+	 * DIJKSTRA(G, w, s)
+			INITIALIZE-SINGLE-SOURCE(G, s)
+				S <- Empty
+				Q <- V[G]
+				while Q != Empty
+					do u <- EXTRACT-MIN(Q)
+					S <- S U u
+					for each vertex v in Adj[u]
+						do RELAX(u, v, w)
+	 * 
 	 */
 	public void findDijkstraShortestPath()
 	{
