@@ -60,7 +60,9 @@ public class DijkstraAlgorithm {
 
 	}
 
-	
+	/**
+	 * Initialize a single source graph
+	 */
 	public void initializeSingleSource()
 	{
 		//Initialize source distance as zero
@@ -73,12 +75,21 @@ public class DijkstraAlgorithm {
 		}
 	}
 	
+	/**
+	 * Method to relax an edge
+	 * @param u
+	 * @param v
+	 * @param w
+	 */
 	public void doRelax(int u, int v, int w)
 	{
 		if(d[v]>d[u]+w)
 			d[v]=d[u]+w;
 	}
 	
+	/**
+	 * Function to find the shortest path using Dijkstra's Algorithm
+	 */
 	public void findDijkstraShortestPath()
 	{
 		initializeSingleSource();
