@@ -19,7 +19,7 @@ public class DepthFirstSearch {
 	public static boolean[] visited;
 	public static int[] parent;
 	public static int noOfVertices,noOfEdges;
-	public static Graph graph=null;
+	public static Graph<Integer> graph=null;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -48,7 +48,7 @@ public class DepthFirstSearch {
 			parent=new int[noOfVertices];
 			
 			
-			graph=new Graph(noOfVertices);
+			graph=new Graph<Integer>(noOfVertices);
 			for(int i=0;i<noOfEdges;i++)
 			{
 				u=scanner.nextInt();
@@ -73,14 +73,14 @@ public class DepthFirstSearch {
 		ArrayList<Edge> outEdges=graph.getOutEdges(source);
 		for(Edge e : outEdges)
 		{
-			if(e.v==dest)
+			if(e.v.compareTo(dest)==0)
 			{
-				path.add(e.v);
+				path.add((Integer)e.v);
 				return path;
 			}
 			else
 			{
-				doDepthFirstSearch(path, e.v, dest);
+				doDepthFirstSearch(path, (Integer)e.v, dest);
 			}
 		}
 		return null;

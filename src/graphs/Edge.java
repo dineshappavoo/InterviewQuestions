@@ -7,14 +7,14 @@ package graphs;
  * @author Dany
  *
  */
-public class Edge {
+public class Edge<T extends Comparable<T>> {
 
 	
-	public int u;
-	public int v;
-	public int w;
+	public T u;
+	public T v;
+	public T w;
 	
-	public Edge(int u, int v, int w)
+	public Edge(T u, T v, T w)
 	{
 		this.u=u;
 		this.v=v;

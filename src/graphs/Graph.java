@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * @author Dany
  *
  */
-public class Graph {
+public class Graph<T extends Comparable<T>>{
 
 	
 	public static ArrayList<Edge>[] adjacencyList=null;
@@ -26,11 +26,11 @@ public class Graph {
 	 * @param w
 	 * To add edges to the adjacency list graph
 	 */
-	public void addEdge(int u, int v, int w)
+	public void addEdge(T u, T v, T w)
 	{
-		if(adjacencyList[u]==null)
-			adjacencyList[u]=new ArrayList<Edge>();
-		adjacencyList[u].add(new Edge(u, v, w));
+		if(adjacencyList[(Integer) u]==null)
+			adjacencyList[(Integer) u]=new ArrayList<Edge>();
+		adjacencyList[(Integer) u].add(new Edge(u, v, w));
 	}
 	
 	/**
@@ -39,14 +39,14 @@ public class Graph {
 	 * @param v
 	 * To remove the edge from the graph
 	 */
-	public void removeEdge(int u, int v)
+	public void removeEdge(T u, T v)
 	{
 		int indexToBeRemoved=-1;
-		ArrayList<Edge> edgeList=adjacencyList[u];
-		for(int i=0;i<adjacencyList[u].size();i++)
+		ArrayList<Edge> edgeList=adjacencyList[(Integer) u];
+		for(int i=0;i<adjacencyList[(Integer) u].size();i++)
 		{
 			Edge e=edgeList.get(i);
-			if(e.u==u&&e.v==v)
+			if(e.u.compareTo(u)==0&&e.v.compareTo(v)==0)
 			{
 				indexToBeRemoved=i;
 			}
@@ -73,14 +73,14 @@ public class Graph {
 	 * To get the weight given the u and v values
 	 * 
 	 */
-	public int getWeight(int u, int v)
+	public T getWeight(int u, int v)
 	{
 		ArrayList<Edge> edgeList=adjacencyList[u];
-		int weight=0;
+		T weight = null;
 		for(Edge e : edgeList)
 		{
-			if(e.v==v)
-				weight=e.w;
+			if(e.v.compareTo(v)==0)
+				weight=(T) e.w;
 		}
 		return weight;
 	}
@@ -103,7 +103,7 @@ public class Graph {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Graph graph=new Graph(3);
+		Graph<Integer> graph=new Graph<Integer>(3);
 		graph.addEdge(1, 2, 5);
 		graph.addEdge(1, 3, 12);
 		graph.addEdge(3, 1, 12);
