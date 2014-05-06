@@ -51,11 +51,12 @@ public class Graph{
 		for(int i=0;i<adjacencyList[u].size();i++)
 		{
 			int e=edgeList.get(i);
-			if(e==(u))
+			if(e==(v))
 			{
 				indexToBeRemoved=i;
 			}
 		}
+		if(indexToBeRemoved!=-1)
 		edgeList.remove(indexToBeRemoved);
 	}
 	
