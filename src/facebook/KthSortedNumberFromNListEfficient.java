@@ -39,8 +39,8 @@ public class KthSortedNumberFromNListEfficient {
 	
 	public void constructNLists(String sFile) throws FileNotFoundException
 	{
-		//File file=new File(sFile);
-		Scanner scanner=new Scanner(System.in);
+		File file=new File(sFile);
+		Scanner scanner=new Scanner(file);
 		int totalLists,k, nValue;
 		ArrayList<Integer> intermediateList=null;
 		ArrayList<ArrayList<Integer>> inList=null;
