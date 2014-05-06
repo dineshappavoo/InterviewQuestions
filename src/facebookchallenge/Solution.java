@@ -15,12 +15,10 @@ import java.util.Scanner;
  */
 public class Solution {
 
-
 	public static int noOfVertices,noOfEdges;
 	public static Graph graph=null;
 	public static HashMap<Integer, Integer> armyA=null;
 	public static HashMap<Integer, Integer> armyB=null;
-
 
 	public static boolean isArmyAandBConnected=false;
 
@@ -85,6 +83,42 @@ public class Solution {
 		//ArrayList<Integer> costlist=new ArrayList<Integer>();
 		int selfCostValue=0, inArmyCostValue=0,finalCost=0;
 		ArrayList<Integer>[] adjacencyList=graph.getAdjacencylist();
+
+
+		ArrayList<Integer> adjCopy=new ArrayList<Integer>();
+		
+		//To remove same colored edges
+		for(int node : armyA.keySet())
+		{
+			ArrayList<Integer> outEdges=graph.getOutEdges(node);
+			adjCopy.addAll(outEdges);
+
+			for(int v : adjCopy)
+			{
+				if(!armyB.containsKey(v))
+				{
+					graph.removeEdge(node, v);
+				}
+			}
+
+		}
+
+		for(int node : armyB.keySet())
+		{
+			ArrayList<Integer> outEdges=graph.getOutEdges(node);
+			adjCopy.addAll(outEdges);
+			for(int v : adjCopy)
+			{
+				if(!armyA.containsKey(v))
+				{
+					graph.removeEdge(node, v);
+				}
+			}
+
+		}
+
+
+
 		for(int i=1;i<adjacencyList.length;i++)
 		{
 			ArrayList<Integer> list=adjacencyList[i];
