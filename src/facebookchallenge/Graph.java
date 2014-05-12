@@ -33,7 +33,7 @@ public class Graph{
 		adjacencyList[u].add(v);
 	}
 	
-	public ArrayList<Integer>[] getAdjacencylist()
+	public ArrayList<Integer>[] getListOfAdjacencylist()
 	{
 		return adjacencyList;
 	}

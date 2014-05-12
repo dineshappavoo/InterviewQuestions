@@ -82,7 +82,11 @@ public class Solution {
 	{
 		//ArrayList<Integer> costlist=new ArrayList<Integer>();
 		int selfCostValue=0, inArmyCostValue=0,finalCost=0;
-		ArrayList<Integer>[] adjacencyList=graph.getAdjacencylist();
+		ArrayList<Integer>[] adjacencyList=graph.getListOfAdjacencylist();
+		
+		
+		int oneSideWeight=0, otherSideWeight=0;
+		int outputWeight=0;
 
 
 		ArrayList<Integer> adjCopy=new ArrayList<Integer>();
@@ -98,6 +102,9 @@ public class Solution {
 				if(!armyB.containsKey(v))
 				{
 					graph.removeEdge(node, v);
+				}else
+				{
+					isArmyAandBConnected=true; //To verify whether  the graph has at least one edge between A and B sets
 				}
 			}
 
@@ -118,6 +125,68 @@ public class Solution {
 		}
 
 
+		graph.printGraph();
+		
+		//To remove minimum weighted vertices and remove the edges belongs to the vertices
+		for(int node : armyA.keySet())
+		{
+			oneSideWeight=armyA.get(node);
+			ArrayList<Integer> outEdges=graph.getOutEdges(node);
+			adjCopy.addAll(outEdges);
+			for(int v : adjCopy)
+			{
+				if(armyB.containsKey(v))
+				{
+					otherSideWeight+=armyB.get(v);
+				}					
+			}
+			
+			if(oneSideWeight<otherSideWeight)
+			{
+				for(int n : adjCopy)
+				{
+					graph.removeEdge(n, node);
+				}
+				outputWeight+=oneSideWeight;
+			}else if(oneSideWeight>otherSideWeight)
+			{
+				for(int n : adjCopy)
+				{
+					graph.removeEdge(node, n);
+				}
+			}
+
+		}
+		
+		for(int node : armyB.keySet())
+		{
+			oneSideWeight=armyB.get(node);
+			ArrayList<Integer> outEdges=graph.getOutEdges(node);
+			adjCopy.addAll(outEdges);
+			for(int v : adjCopy)
+			{
+				if(armyA.containsKey(v))
+				{
+					otherSideWeight+=armyA.get(v);
+				}else
+				{
+					otherSideWeight+=armyB.get(v);
+				}					
+			}
+			
+			if(oneSideWeight<otherSideWeight)
+			{
+				for(int n : adjCopy)
+				{
+					graph.removeEdge(n, node);
+				}
+				outputWeight+=oneSideWeight;
+			}
+
+		}
+		
+		
+		
 
 		for(int i=1;i<adjacencyList.length;i++)
 		{
