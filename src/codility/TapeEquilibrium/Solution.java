@@ -1,7 +1,7 @@
 /**
  * 
  */
-package codility.demo6W4JG5VZ7;
+package codility.TapeEquilibrium;
 
 /**
  * @author Dany
