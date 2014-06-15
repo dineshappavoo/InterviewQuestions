@@ -32,8 +32,8 @@ public class Solution {
 		Elements of input arrays can be modified.
 	 */
 	public static void main(String[] args) {
-		//int [] A={1,5,3,4,2,7};
-		int[] A={4,3,2,5,6};
+		int [] A={1,5,3,4,2,7};
+		//int[] A={2};
 		System.out.println(new Solution().solution(A));
 	}
 
@@ -41,19 +41,17 @@ public class Solution {
 	public int solution(int[] A) {
         long sum=0, value=0;
         int length=A.length;
-       /* if(length==0)
-        	return 1;
-        if(length==1)
-        {
-        	return 1;
-        }*/
+        value=((length*(length+1))/2);
         for(int i=0;i<length;i++)
         {
         	if(!(A[i]==(length+1)))
-        	sum+=A[i];
+        	{
+        	value-=A[i];
+        	}
         }
-        value=((length*(length+1))/2);
-        return (int) (value-sum);
+        //value=((length*(length+1))/2);
+        //return (int) (value-sum);
+        return (int) value;
         
     }
 }
