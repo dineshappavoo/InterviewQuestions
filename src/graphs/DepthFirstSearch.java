@@ -27,6 +27,7 @@ public class DepthFirstSearch {
 		DepthFirstSearch dfs=new DepthFirstSearch();
 		dfs.constructGraph();
 		ArrayList<Integer> path=dfs.doDepthFirstSearch(null, 0, 1);
+		if(path!=null)
 		for(int n : path)
 		{
 			System.out.println(n);
@@ -71,6 +72,7 @@ public class DepthFirstSearch {
 		visited[source]=true;
 		path.add(source);
 		ArrayList<Edge> outEdges=graph.getOutEdges(source);
+		if(outEdges!=null)
 		for(Edge e : outEdges)
 		{
 			if(e.v.compareTo(dest)==0)
