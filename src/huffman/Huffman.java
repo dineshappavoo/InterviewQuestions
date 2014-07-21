@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
 import amazon.AmazonChallenge.Product;
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  */
 /*************************************************************************
