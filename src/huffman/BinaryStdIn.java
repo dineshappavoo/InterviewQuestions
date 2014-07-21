@@ -4,7 +4,7 @@
 package huffman;
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  */
 /*************************************************************************
