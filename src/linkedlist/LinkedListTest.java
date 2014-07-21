@@ -4,7 +4,7 @@
 package linkedlist;
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  */
 public class LinkedListTest {
