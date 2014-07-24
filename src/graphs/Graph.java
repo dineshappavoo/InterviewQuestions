@@ -3,7 +3,7 @@ package graphs;
 import java.util.ArrayList;
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  */
 public class Graph<T extends Comparable<T>>{
