@@ -4,7 +4,7 @@
 package graphs;
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  */
 public class Edge<T extends Comparable<T>> {
