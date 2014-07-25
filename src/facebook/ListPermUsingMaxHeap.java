@@ -13,7 +13,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  */
 public class ListPermUsingMaxHeap {
