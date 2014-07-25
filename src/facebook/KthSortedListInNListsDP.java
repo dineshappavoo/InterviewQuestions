@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  */
 public class KthSortedListInNListsDP {
