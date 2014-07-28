@@ -4,7 +4,7 @@ package dynamicprogramming;
  */
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  */
 public class LongestIncreasingSubsequence {
