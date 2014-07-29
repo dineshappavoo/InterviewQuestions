@@ -4,7 +4,7 @@
 package codilitydemo;
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  */
 public class PermMissingElem {
