@@ -11,7 +11,7 @@ import java.util.PriorityQueue;
 
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  */
 public class AmazonChallenge {
