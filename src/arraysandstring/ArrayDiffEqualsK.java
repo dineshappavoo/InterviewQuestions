@@ -6,7 +6,7 @@ package arraysandstring;
 import java.util.ArrayList;
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  */
 
