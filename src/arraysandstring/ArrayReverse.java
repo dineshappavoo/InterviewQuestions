@@ -4,7 +4,7 @@
 package arraysandstring;
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  */
 public class ArrayReverse {
