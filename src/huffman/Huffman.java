@@ -6,7 +6,7 @@ package huffman;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-import amazon.AmazonChallenge.Product;
+import com.amazon.challenge.AmazonChallenge.Product;
 
 /**
  * @author Dinesh Appavoo
