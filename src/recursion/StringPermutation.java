@@ -25,8 +25,8 @@ public class StringPermutation {
 		Stack firstStack=new Stack(24);
 		Stack secondStack=new Stack(24);
 		firstStack.push("");
-		Stack res=permStrings(sData, sourceStack, destStack);
-		
+		Stack res=permStrings("", firstStack, secondStack);
+		return res;
 	}
 	
 	
