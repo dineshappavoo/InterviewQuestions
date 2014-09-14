@@ -43,6 +43,12 @@ public class TreeNode<key, value> implements Iterable<key> {
 
 	public void put(key key, value value, key parent)
 	{
+		if(parent==null)
+		{
+			root=new Node(null, null);
+			root.adjacencyList.add(new Node(key, value));
+			return;
+		}
 		Queue<Node> queue=new LinkedList<Node>();
 		boolean keyExists=false;
 		queue.add(root);
