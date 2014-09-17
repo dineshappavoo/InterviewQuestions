@@ -17,8 +17,15 @@ public class LinkedListST<key, value> implements Iterable<key>{
 	private class Node
 	{
 		key key;
-		int data;
+		value value;
 		Node next;
+		
+		public Node(key key, value value)
+		{
+			this.key=key;
+			this.value=value;
+			this.next=null;
+		}
 	}
 
 	@Override
@@ -32,14 +39,58 @@ public class LinkedListST<key, value> implements Iterable<key>{
 		return N;
 	}
 	
-	public void put(key key, int data)
+	public void put(key key, value value)
 	{
 		while(first!=null)
 		{
 			if(first.key==key)
 			{
-				first.data=data;
+				first.value=value;
+				return;
 			}
+			first=first.next;
 		}
+		first.next=new Node(key, value);
+	}
+	
+	public value get(key key)
+	{
+		while(first!=null)
+		{
+			if(first.key==key)
+			{
+				return first.value;
+			}
+			first=first.next;
+		}
+		return null;
+	}
+	
+	public value remove(key key)
+	{
+		while(first.next!=null)
+		{
+			if(first.next.key==key)
+			{
+				value value=first.next.value;
+				first.next=first.next.next;
+				return value;
+			}
+			first=first.next;
+		}
+		return null;
+	}
+	
+	public boolean contains(key key)
+	{
+		while(first!=null)
+		{
+			if(first.key==key)
+			{
+				return true;
+			}
+			first=first.next;
+		}
+		return false;
 	}
 }
