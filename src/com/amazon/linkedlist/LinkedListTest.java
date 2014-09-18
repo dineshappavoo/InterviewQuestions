@@ -24,7 +24,14 @@ public class LinkedListTest {
 		list.put(2, 3);
 		list.put(4, 7);
 		list.put(5, 8);
-		list.iterateList();
+		//list.iterateList();
+		
+		// for (Integer s : list) 
+	      //      System.out.println(s);
+		 
+		 // print out all key-value pairs
+	        for (Integer s : list)
+	            System.out.println(s + " " + list.get(s));
 	}
 
 }

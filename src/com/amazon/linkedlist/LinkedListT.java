@@ -4,6 +4,8 @@
 package com.amazon.linkedlist;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 
 /**
  * @author Dany
@@ -20,18 +22,29 @@ public class LinkedListT<key, value> implements Iterable<key>{
 		value value;
 		Node next;
 		
-		public Node(key key, value value)
+		public Node(key key, value value, Node next)
 		{
 			this.key=key;
 			this.value=value;
-			this.next=null;
+			this.next=next;
 		}
 	}
 
 	@Override
-	public Iterator<key> iterator() {
-		return new ListIterator(first);
-	}
+	public Iterator<key> iterator() { return new ListIterator(first);  }
+    private class ListIterator implements Iterator<key> {
+        Node current;
+        ListIterator(Node first)     { current = first;                            }
+        public boolean hasNext()     { return current != null;                     }
+        public void remove()         { throw new UnsupportedOperationException();  }
+
+        public key next() {
+            if (!hasNext()) throw new NoSuchElementException();
+            key key = current.key;
+            current = current.next; 
+            return key;
+        }
+    }
 	
 	public int getSize()
 	{
@@ -50,7 +63,7 @@ public class LinkedListT<key, value> implements Iterable<key>{
 			}
 			x=x.next;
 		}
-		first=new Node(key, value);
+		first=new Node(key, value,first);
 	}
 	
 	public value get(key key)
