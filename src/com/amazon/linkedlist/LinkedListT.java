@@ -9,7 +9,7 @@ import java.util.Iterator;
  * @author Dany
  *
  */
-public class LinkedListST<key, value> implements Iterable<key>{
+public class LinkedListT<key, value> implements Iterable<key>{
 
 	private int N;
 	private Node first;
