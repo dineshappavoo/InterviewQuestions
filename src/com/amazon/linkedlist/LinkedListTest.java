@@ -20,7 +20,7 @@ public class LinkedListTest {
 	
 	public void testLinkedList()
 	{
-		LinkedListST<Integer, Integer> list=new LinkedListST<Integer, Integer>();
+		LinkedListT<Integer, Integer> list=new LinkedListT<Integer, Integer>();
 		list.put(2, 3);
 		list.put(4, 7);
 		list.put(5, 8);
