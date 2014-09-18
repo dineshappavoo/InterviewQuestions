@@ -30,8 +30,7 @@ public class LinkedListST<key, value> implements Iterable<key>{
 
 	@Override
 	public Iterator<key> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ListIterator(first);
 	}
 	
 	public int getSize()
@@ -41,56 +40,73 @@ public class LinkedListST<key, value> implements Iterable<key>{
 	
 	public void put(key key, value value)
 	{
-		while(first!=null)
+		Node x=first;
+		while(x!=null)
 		{
-			if(first.key==key)
+			if(x.key.equals(key))
 			{
-				first.value=value;
+				x.value=value;
 				return;
 			}
-			first=first.next;
+			x=x.next;
 		}
-		first.next=new Node(key, value);
+		first=new Node(key, value);
 	}
 	
 	public value get(key key)
 	{
-		while(first!=null)
+		Node x=first;
+		while(x!=null)
 		{
-			if(first.key==key)
+			if(x.key.equals(key))
 			{
-				return first.value;
+				return x.value;
 			}
-			first=first.next;
+			x=x.next;
 		}
 		return null;
 	}
 	
 	public value remove(key key)
 	{
-		while(first.next!=null)
+		Node x=first;
+
+		while(x.next!=null)
 		{
-			if(first.next.key==key)
+			if(x.next.key.equals(key))
 			{
-				value value=first.next.value;
-				first.next=first.next.next;
+				value value=x.next.value;
+				x.next=x.next.next;
 				return value;
 			}
-			first=first.next;
+			x=x.next;
 		}
 		return null;
 	}
 	
 	public boolean contains(key key)
 	{
-		while(first!=null)
+		Node x=first;
+
+		while(x!=null)
 		{
-			if(first.key==key)
+			if(x.key.equals(key))
 			{
 				return true;
 			}
-			first=first.next;
+			x=x.next;
 		}
 		return false;
+	}
+	
+	public void iterateList()
+	{
+		Node x=first;
+
+		while(x!=null)
+		{
+			System.out.println("Key : "+first.key+" Value : "+first.value);
+			x=x.next;
+		}
 	}
 }
