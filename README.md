@@ -1,5 +1,5 @@
-UVa Online Judge 
-=================
+Algorithmic Puzzles and Interview Questions
+===========================================
 
 This repository contains the solutions for algorithmic puzzles, interview questions and solutions from Amazon, Twitter, Facebook and Google.
 
