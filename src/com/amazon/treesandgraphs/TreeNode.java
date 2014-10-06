@@ -12,7 +12,7 @@ import java.util.Queue;
  * @author Dinesh Appavoo
  *
  */
-public class TreeNode<key, value> implements Iterable<key> {
+public class TreeNode<key, value> implements Comparable<key> {
 
 	private Node root;
 	private int N;
@@ -55,7 +55,7 @@ public class TreeNode<key, value> implements Iterable<key> {
 		while(!queue.isEmpty())
 		{
 			Node n=queue.poll();
-			if(n.key.equals(parent))
+			if(n.key.(parent))
 			{
 				ArrayList<Node> adjacentList=n.getAdjacencyList();
 				for(Node nd : adjacentList)
@@ -156,9 +156,29 @@ public class TreeNode<key, value> implements Iterable<key> {
 		return false;
 	}
 
+
+	
+	public void doDFS()
+	{
+		Queue<Node> queue=new LinkedList<Node>();
+		queue.add(root);
+		System.out.println(" "+root.key);
+		while(!queue.isEmpty())
+		{
+			Node n=queue.poll();
+			ArrayList<Node> adjacentList=n.getAdjacencyList();
+			for(Node nd : adjacentList)
+			{
+				System.out.println(" "+nd.key);
+				queue.add(nd);
+			}
+		}
+		
+	}
+
 	@Override
-	public Iterator<key> iterator() {
+	public int compareTo(key arg0) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 }

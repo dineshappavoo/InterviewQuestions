@@ -15,6 +15,7 @@ public class TessNodeTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		new TessNodeTest().testTreeNode();
 	}
 	
 	public void testTreeNode()
@@ -31,6 +32,7 @@ public class TessNodeTest {
 		tree.put(23, 65, 9);
 
 
+		tree.doDFS();
 	}
 
 }

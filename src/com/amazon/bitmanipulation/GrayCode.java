@@ -57,7 +57,7 @@ public class GrayCode {
 	    	return false;
 	    n >>= 1;
 	  }
-	  if()
-	  return count;
+	 
+	  return true;
 	}
 }
