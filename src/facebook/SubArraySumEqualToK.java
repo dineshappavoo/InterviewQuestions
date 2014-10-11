@@ -16,7 +16,7 @@ public class SubArraySumEqualToK {
 		// TODO Auto-generated method stub
 
 		int[] arr={1,5,6,7,9,11};
-		boolean res=new SubArraySumEqualToK().finKSum(arr, 21);
+		boolean res=new SubArraySumEqualToK().findSumEqualsK(arr, 22);
 		System.out.println(res);
 	}
 
@@ -49,6 +49,26 @@ public class SubArraySumEqualToK {
 		}
 		return false;
 
+	}
+	
+	public boolean findSumEqualsK(int[] arr, int k)
+	{
+		int tempSum=0;
+		int currentIndex=0,startIndex=0;
+		while(currentIndex<arr.length)
+		{
+			if(tempSum==k)
+				return true;
+			if(tempSum>k)
+			{
+				tempSum-=arr[startIndex++];
+			}else
+			{
+			tempSum+=arr[currentIndex++];
+			}
+			
+		}
+		return false;
 	}
 
 }
