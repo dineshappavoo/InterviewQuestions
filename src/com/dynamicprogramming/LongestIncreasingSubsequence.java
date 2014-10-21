@@ -1,14 +1,13 @@
-package dynamicprogramming;
+package com.dynamicprogramming;
 /**
  * 
  */
-
 
 /**
  * @author Dinesh Appavoo
  *
  */
-public class MarbleSelection {
+public class LongestIncreasingSubsequence {
 
 	/**
 	 * @param args
@@ -19,9 +18,10 @@ public class MarbleSelection {
 	}
 	
 	
-	public void chooseMarble(int[] arr, int n, int selection)
+	public void findLongestIncreasingSubsequence(int[] sequence)
 	{
-		
+		 
 	}
+	
 
 }
