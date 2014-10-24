@@ -14,19 +14,20 @@ public class GrayCode {
 	 */
 	public static void main(String[] args) {
 
-		System.out.println(new GrayCode().isGrayCode((byte)2, (byte)4));
+		System.out.println(new GrayCode().isGrayCode((byte)2, (byte)3));
 	}
 	
 	public boolean isGrayCode(byte a, byte b)
 	{
 		boolean isGray=false;
-		if(NumberOfSetBits(a^b)==1)
-			return true;
-		else return false;
-		
-		/*if((countSetBits(a^b))==1)
+		/*if(NumberOfSetBits(a^b)==1)
 			return true;
 		else return false;*/
+		
+		if(countSetBits((byte) (a^b))==1)
+			return true;
+		else return false;
+			
 	}
 
 	public int NumberOfSetBits(int i)
