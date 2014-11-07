@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EC2 Management Console</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+<meta name="awsc-mezz" content="1">
+<meta id="awsc-mezz-locale" name="awsc-mezz-locale" content="en">
+<meta id="awsc-mezz-fb" name="awsc-mezz-fb" content="0">
+
+
+
+<style type="text/css">
+html, body, #b, #cc {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+#b {
+  position: relative;
+  min-height: 100%;
+}
+
+#cc {
+  padding-bottom: 60px;
+}
+
+#h, #f {
+  overflow: hidden;
+}
+
+#f {
+  height: 60px;
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+}
+
+#f #consoleNavFooter #footer-content {
+  padding: 10px 0;
+  margin: 0 30px;
+  border-top: 1px solid #ccc;
+}
+
+#consoleNavFooter {
+  margin-top: 9px;
+}
+
+#h #awsgnav #nav-menubar {
+  margin: 0 0 15px;
+}
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="https://d3rrzw75sdtfe5.cloudfront.net/css/menu-2kjdfskljflksdfjk/globalnav-a57923a9e567fae07903c9e6801dd9dc7d48f45f.gz.css" charset="utf-8"/>
+<link rel="stylesheet" type="text/css" href="https://d3rrzw75sdtfe5.cloudfront.net/css/mezz-35gbnwov975sjdhcbsf/custsat-f0b6fa7965c2bff322b5089190025df0297eb818.gz.css" charset="utf-8">
+<script type="text/javascript" src="https://d3rrzw75sdtfe5.cloudfront.net/js/mezz-35gbnwov975sjdhcbsf/mezz-5c7646b136907285c45ae495a46ec7d9329e8fb6.gz.js" charset="utf-8"></script>
+
+
+        <meta http-equiv="X-UA-Compatible" content="IE=10" >
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="gwt:property" content="locale=en">
+        
+          
+        <style type="text/css">
+            div[style*="visibility: hidden"]::-webkit-scrollbar {
+                display: none;
+            }
+        </style>
+        <script type="text/javascript">
+            if (top != self) {
+                top.location.replace(document.location);
+                alert("For security reasons, framing is not allowed; click OK to remove the frames.");
+            }
+
+            if (!window.metricsTimer) {
+                window.metricsTimer = {
+                    customerReady: function(){},
+                    discardTimer: function(){},
+                    setCustomerReadyEvents: function(){},
+                    start: function(){},
+                    stop: function(){},
+                    submitCustomTimer: function(){}
+                };
+            }
+
+            var hashArg = window.location.hash;
+            var screenName = "";
+            var screenNames = [
+                'Home',
+                'Reports',
+                'Tags',
+                'Images',
+                'ReservedInstances',
+                'Instances',
+                'Addresses',
+                'KeyPairs',
+                'Events',
+                'SpotInstances',
+                'BundleTasks',
+                'Volumes',
+                'Snapshots',
+                'SecurityGroups',
+                'PlacementGroups',
+                'LoadBalancers',
+                'NIC'
+            ];
+         
+            if ( (hashArg.indexOf('#s=') >= 0) && (hashArg.length > 3) ) {
+                screenName = hashArg.substring(3, hashArg.length);
+                if (screenNames.indexOf(screenName) >= 0) {
+                    window.location.href = '/ec2/v2/home' + window.location.search + '#' + screenName + ':';
+                }
+            }
+
+            if (/launchAmi=ami-[a-f0-9]{8}/.test(hashArg)) {
+                var amiIds = hashArg.match(/ami-[a-f0-9]{8}/);
+                if (amiIds && amiIds.length == 1) {
+                    window.location.hash = '#LaunchInstanceWizard:ami=' + amiIds[0];
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            var AWSConsoleMetrics = {
+                startTime: new Date().getTime(), 
+                urlPathOverride:'/ec2/v2',
+                pageId: function() {
+                    var hashId = '';
+                    var hashMatch = window.location.hash.match(/^#?([^:]+):.*/);
+                    if(hashMatch){
+                        hashId = hashMatch[1];
+                        if(hashId == 'Home'){ 
+                            hashId = '';
+                        }
+                    }
+                    var pageId = 'ec2_v2_home';
+                    if (hashId) {
+                        pageId += '_' + hashId;
+                    }
+                    return pageId;
+                }
+            };
+        </script>
+        <script type="text/javascript">
+            var EC2Config = {"bundleTasksAvailable":true,"cloudWatchActionsAvailable":true,"copyImageAvailable":true,"copySnapshotAvailable":true,"createKeyPairAvailable":true,"eventsAvailable":true,"fixedPriceRiAvailable":false,"utilizationBasedRiAvailable":true,"freeTierAvailable":true,"marketplaceAvailable":true,"marketplaceNewUiAvailable":true,"placementGroupsAvailable":true,"publicLinksAvailable":true,"riMarketplaceAvailable":true,"serviceHealthAvailable":true,"spotAvailable":true,"trustedAdvisorAvailable":true,"volumePiopsAvailable":true,"vpcMode":"vpcDefault","reportEc2IssueAvailable":true,"newConsoleDefault":true,"notificationAreaAvailable":true,"dashboardAdAvailable":true,"showStackSwitchPopup":true,"gp2Available":true,"ebsEncryptionAvailable":true,"cloudWatchFilteredAlarmsCallAvailable":true,"elbConfig":{"accessLogsAvailable":true,"connectionDrainingAvailable":true,"disableBucketCreation":false,"connectionTimeoutAvailable":true,"taggingAvailable":true},"disabledPlatforms":[],"features":["deep-filters"],"windows2012r2ConnectivityIssueWarningAvailable":true};
+            var EC2MarketplaceConfig = {"displayMarketplaceProducts":true,"marketplaceProductsUrl":"https://aws.amazon.com/marketplace/api/ec2-dashboard","marketplacePopularProductsPath":"/api/ec2-marketplace-popular","marketplaceFeaturedProductsPath":"/api/ec2-marketplace-featured","marketplaceEndpoint":"aws.amazon.com/marketplace","timeout":30000};
+            var defaultLocale = "en";
+            window.noviceByDefault = EC2Config.vpcMode === "vpcDefault";
+        </script>
+        <meta id="meta-username" name="username" content="AWS User" />
+        <link rel="icon" type="image/ico" href="https://awsmedia.s3.amazonaws.com/favicon.ico"/>
+        <link rel="shortcut icon" type="image/ico" href="https://awsmedia.s3.amazonaws.com/favicon.ico"/>
+    
+</head>
+<body>
+  <div id="b">
+    <div id="h">
+
+<div id="awsc-custsat" class="prompt" style="display: none">
+    <p id="awsc-custsat-question" class="awsc-custsat-message"></p>
+
+    <div id="awsc-custsat-rating">
+        <!-- Formatting this way to avoid new lines between elements -->
+        <!-- Source: http://css-tricks.com/fighting-the-space-between-inline-block-elements/ -->
+        <button class="awsc-custsat-star" data-awsc-custsat-rating="1"></button
+        ><button class="awsc-custsat-star" data-awsc-custsat-rating="2"></button
+        ><button class="awsc-custsat-star" data-awsc-custsat-rating="3"></button
+        ><button class="awsc-custsat-star" data-awsc-custsat-rating="4"></button
+        ><button class="awsc-custsat-star" data-awsc-custsat-rating="5"></button>
+    </div>
+
+    <p id="awsc-custsat-thanks" class="awsc-custsat-message"></p>
+
+    <button id="awsc-custsat-close">&#215;</button>
+</div>
+
+<div class="awsc-header-prefix"></div>
+<div id="consoleNavHeader"></div>
+
+</div>
+<div id="cc">
+  <div id="c">
+
+
+        <script type="text/javascript" language="javascript" src="https://d1gmaa4bv8uttx.cloudfront.net/7978d4aa9c5b98e05252379a5e67dc5ba10fd61e/ec2/ec2.nocache.js"></script>
+        <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
+        <noscript>
+            <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+                Your web browser must have JavaScript enabled
+                in order for this application to display correctly.
+            </div>
+        </noscript>
+    
+</div>
+</div>
+<div id="f">
+
+<div id="footer">
+    <div id="consoleNavFooter"></div>
+</div>
+<div class="awsc-footer-suffix"></div>
+
+</div>
+</div>
+
+<script type="text/javascript" src="https://d3rrzw75sdtfe5.cloudfront.net/js/menu-2kjdfskljflksdfjk/globalnav-e89f34b836937937cc23e4f7a49cad6e3e9987a7.gz.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://d3rrzw75sdtfe5.cloudfront.net/js/mezz-35gbnwov975sjdhcbsf/mezz-c9929f663db76429487e39d3a166da903ab6d2a3.gz.js" charset="utf-8"></script>
+
+
+<script type="text/javascript" src="https://d3rrzw75sdtfe5.cloudfront.net/js/mezz-35gbnwov975sjdhcbsf/custsat-b5831b7305a512bb6a87bf2e718ca3466325fb78.gz.js" charset="utf-8" async></script>
+<script type="text/javascript" src="https://d36cz9buwru1tt.cloudfront.net/amznUrchin.js" async></script>
+
+
+</body>
+</html>
+
+
